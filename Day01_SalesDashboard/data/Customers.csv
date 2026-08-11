@@ -1,0 +1,6 @@
+﻿CustomerID,CustomerName,Country,Segment
+C001,Alpha Corp,USA,Enterprise
+C002,Beta LLC,UK,SMB
+C003,Gamma Inc,USA,Enterprise
+C004,Delta Ltd,Germany,SMB
+C005,Epsilon SA,France,Enterprise
