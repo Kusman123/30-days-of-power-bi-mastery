@@ -1,0 +1,74 @@
+// ============================================
+// DAX Measure: Total Revenue (LineTotal)
+// Project: Sales & Profitability Dashboard
+// Day 2 - Task 3
+// ============================================
+//
+// Purpose:
+// Dynamically calculates total revenue by iterating
+// over each row in the Sales table and computing
+// Quantity × UnitPrice × (1 - Discount)
+//
+// Why a Measure AND a Calculated Column?
+// ┌─────────────────────┬──────────────────────────┐
+// │ LineTotal (Column)  │ Total Revenue (Measure)   │
+// ├─────────────────────┼──────────────────────────┤
+// │ Computed once       │ Computed on every query   │
+// │ Stored in table     │ Not stored (dynamic)      │
+// │ Row-level detail    │ Aggregated total          │
+// │ Use in table visual │ Use in KPI cards, charts  │
+// │ Best for 100M+ rows │ Best for filtered totals  │
+// └─────────────────────┴──────────────────────────┘
+//
+// Best Practice:
+// Pre-compute LineTotal in Power Query for performance.
+// Use this measure only when you need dynamic aggregation
+// based on user filters and slicers.
+// ============================================
+
+Total Revenue = 
+SUMX(
+    'Sales',
+    'Sales'[UnitPrice] * 'Sales'[Quantity] * (1 - 'Sales'[Discount])
+)
+
+// ============================================
+// ALTERNATIVE VERSIONS (for different needs):
+// ============================================
+
+// Version 1: Using the pre-computed LineTotal column (FASTER)
+// Total Revenue (Fast) = SUM('Sales'[LineTotal])
+// Use this when LineTotal exists as a column in Sales.
+
+// Version 2: Average Revenue Per Order
+// Average Revenue = AVERAGEX(
+//     'Sales',
+//     'Sales'[UnitPrice] * 'Sales'[Quantity] * (1 - 'Sales'[Discount])
+// )
+
+// Version 3: Revenue excluding discounts (Gross Revenue)
+// Gross Revenue = SUMX(
+//     'Sales',
+//     'Sales'[UnitPrice] * 'Sales'[Quantity]
+// )
+
+// Version 4: Total Discount Amount
+// Total Discount = SUMX(
+//     'Sales',
+//     'Sales'[UnitPrice] * 'Sales'[Quantity] * 'Sales'[Discount]
+// )
+
+// ============================================
+// PERFORMANCE NOTE:
+// ============================================
+// SUMX is an iterator. For every row in Sales,
+// it computes the expression and then sums.
+// 
+// On 100M rows: This recalculates on every slicer click.
+// Pre-computed LineTotal column + SUM() is faster.
+//
+// Use this measure when:
+// - You need the total to respond to dynamic filters
+// - You don't want to store the column
+// - The calculation involves columns from multiple tables
+// ============================================
