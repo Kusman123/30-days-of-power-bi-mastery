@@ -2,7 +2,7 @@
 
 **Date:** [12/08/2026]  
 **Status:** ✅ Complete  
-**PBIX File:** [SalesDashboard.pbix](./SalesDashboard.pbix)
+**PBIX File:** [SalesDashboardDay2.pbix](./SalesDashboardDay2.pbix)
 
 ---
 
