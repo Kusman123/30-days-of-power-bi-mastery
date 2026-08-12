@@ -53,7 +53,7 @@ Total Revenue = SUMX(
 
 > 💡 **0.1% Insight:** _"Measures don't use memory" ≠ "Measures are always better."_ Memory is cheap. CPU time on every user click is expensive. Pre-compute what you can. Measure what must be dynamic.
 
-![Custom Column LineTotal](https://images/custom-column-linetotal.png)
+![Custom Column LineTotal](/images/custom-column-linetotal.png)
 
 # Task 4 – Merging vs. Relationships
 
@@ -82,7 +82,7 @@ Table.ExpandTableColumn(#"Merged Queries", "Products", {"Category", "CostPrice"}
 
 > 💡 **0.1% Insight:** Merge only when necessary—RLS propagation, multi-column composite keys, or complex ETL requiring dimension values during transformation.
 
-![Merge Left Outer](https://images/merge-left-outer.png)
+![Merge Left Outer](/images/merge-left-outer.png)
 
 # Task 5 – Unpivot / Pivot Scenario
 
@@ -97,7 +97,7 @@ Table.ExpandTableColumn(#"Merged Queries", "Products", {"Category", "CostPrice"}
 
 ### Before Unpivot:
 
-![Before Unpivot](https://images/unpivot-before.png)
+![Before Unpivot](/images/unpivot-before.png)
 
 ---
 
@@ -109,7 +109,7 @@ Table.UnpivotOtherColumns(#"Changed Type", {"ProductID", "ProductName"}, "Month"
 
 ### After Unpivot:
 
-![After Unpivot](https://images/unpivot-after.png)
+![After Unpivot](/images/unpivot-after.png)
 
 ## 🔑 Why Never Pivot Back:
 
@@ -168,8 +168,8 @@ in
 2. **Sort `MonthName`** by `MonthNumber`
 3. **Sort `DayOfWeek`** by `DayOfWeek` number
 
-![Mark as Date Table](https://images/mark-as-date-table.png)
-![Data Table M Code](https://images/date-table-m-code.png)
+![Mark as Date Table](/images/mark-as-date-table.png)
+![Data Table M Code](/images/date-table-m-code.png)
 
 # Task 7 – Staging vs. Reference Queries
 
@@ -197,7 +197,7 @@ in
 | Debug/experiment safely                | **Duplicate** | Sandbox. Don't risk breaking original.            |
 | Different filters on same data         | **Reference** | Same base, lightweight views.                     |
 
-![Staging vs Reference](https://images/staging-vs-reference.png)
+![Staging vs Reference](/images/staging-vs-reference.png)
 
 ---
 
@@ -226,7 +226,7 @@ Customers (Dimension)                                │                        
 └── Segment                                                                      │
 ```
 
-![data Model](https://images/data_model.png)
+![data Model](/images/data_model.png)
 
 ## Design Principles Applied:
 
