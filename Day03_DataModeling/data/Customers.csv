@@ -1,0 +1,6 @@
+CustomerID,CustomerName,Country,JoinDate,Segment
+C001,Alice Johnson,USA,2024-03-15,Premium
+C002,Bob Smith,UK,2024-06-20,Standard
+C003,Carol Williams,Germany,2023-11-08,Premium
+C004,David Brown,France,2025-01-25,Standard
+C005,Eve Davis,Spain,2024-09-10,Standard

@@ -1,0 +1,7 @@
+MerchantID,MerchantName,Category,Country
+M001,Amazon,Online Retail,USA
+M002,Starbucks,Food & Beverage,UK
+M003,Netflix,Subscription,USA
+M004,Uber,Transport,Multiple
+M005,Apple Store,Technology,USA
+M006,Lufthansa,Travel,Germany
