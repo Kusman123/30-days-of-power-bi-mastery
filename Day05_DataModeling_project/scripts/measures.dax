@@ -1,0 +1,21 @@
+// Core Measures Collection
+
+// Fact Sales
+Total Sales = SUM(fact_sales[line_total])
+Total Orders = DISTINCTCOUNT(fact_sales[order_id])
+Total Active Customers = DISTINCTCOUNT(fact_sales[customer_id])
+
+// Customer Dimension
+Total Customers = COUNT(dim_customer[customer_id])
+
+// Order Process
+Order to Pay Days = DATEDIFF(fact_order_process[order_date], fact_order_process[pay_date], DAY)
+Average Order to Pay = AVERAGE(fact_order_process[order_to_pay_days])
+
+// Inventory
+Total Units = SUM(fact_inventory[units])
+
+// Campaign
+Total Spend = SUM(fact_campaign_spend[spend])
+Total Impressions = SUM(fact_campaign_spend[impressions])
+Total Clicks = SUM(fact_campaign_spend[clicks])

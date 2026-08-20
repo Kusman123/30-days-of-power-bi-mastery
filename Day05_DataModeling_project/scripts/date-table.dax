@@ -1,0 +1,44 @@
+dax
+// ============================================
+// DAX: Date Dimension Table
+// Project: Data Modeling Portfolio Project
+// Purpose: Create a comprehensive date dimension
+//          using CALENDARAUTO() function
+// ============================================
+//
+// HOW IT WORKS:
+// CALENDARAUTO() scans the entire data model,
+// finds the earliest and latest dates across all
+// tables, and generates a continuous date range.
+//
+// BENEFITS:
+// - Automatically expands as new data arrives
+// - No manual date table maintenance
+// - Covers all dates in the model
+// - Perfect for shared date dimension
+//
+// ============================================
+
+// ========== BASE DATE TABLE ==========
+dim_date = CALENDARAUTO()
+
+// ========== ADD YEAR COLUMN ==========
+Year = YEAR(dim_date[date])
+
+// ========== ADD MONTH NUMBER ==========
+MonthNumber = MONTH(dim_date[date])
+
+// ========== ADD MONTH NAME ==========
+MonthName = FORMAT(dim_date[date], "MMMM")
+
+// ========== ADD MONTH SHORT ==========
+MonthShort = FORMAT(dim_date[date], "MMM")
+
+// ========== ADD QUARTER ==========
+Quarter = "Q" & QUARTER(dim_date[date])
+
+// ========== ADD DAY OF WEEK ==========
+DayOfWeek = FORMAT(dim_date[date], "dddd")
+
+// ========== ADD DAY OF WEEK SHORT ==========
+DayOfWeekShort = FORMAT(dim_date[date], "ddd")
