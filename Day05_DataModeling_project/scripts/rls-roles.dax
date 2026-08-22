@@ -1,0 +1,9 @@
+// Role: Regional Access
+// Applied on dim_customer table
+
+[region] = 
+LOOKUPVALUE(
+    security[region],
+    security[user_email],
+    USERPRINCIPALNAME()
+)

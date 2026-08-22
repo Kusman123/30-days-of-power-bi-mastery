@@ -161,7 +161,7 @@ The original model contained these tables:
 
 - **Merging different grains causes fan-out.** Always check cardinality before merging.
 - **Header-Detail is everywhere in source systems.** The fact table comes from the details; the header provides dimensions.
-- **Don't trust pre-aggregated values.** Remove them and calculate from the detailed data.
+- **Don't trust pre-aggregated values .** Remove them and calculate from the detailed data.
 - **Same money repeats across process steps.** Use accumulating snapshot to track dates, not amounts.
 - **Dimensions vs. Facts is about business meaning, not data types.** A table with dates can still be a dimension if it describes something static.
 - **RLS should be applied on dimensions** so it cascades to all connected facts.
